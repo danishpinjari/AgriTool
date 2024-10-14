@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports and Recommendations</title>
+    <!-- Bootstrap CSS for styling -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/Reports.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <a class="navbar-brand" href="#"><i class="fas fa-leaf"></i>AgriData Tool</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"></li>
+                <a class="nav-link" href="Dashboard.html"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+            </li>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Visualization.html"><i class="fas fa-chart-pie"></i>Data Visualization</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="prediction.html"><i class="fas fa-bullhorn"></i>Predictions and Alerts</a>
+            </li>
+
+                <!-- Reports and Recommendations Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="reportsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-file-alt"></i>
+                        Reports and Recommendations
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="reportsDropdown">
+                        <a class="dropdown-item" href="#cropHealthReports"><i class="fas fa-leaf"></i> Crop Health Reports</a>
+                        <a class="dropdown-item" href="#marketRecommendations"><i class="fas fa-chart-line"></i> Market Price Recommendations</a>
+                        <a class="dropdown-item" href="#waterUsageReports"><i class="fas fa-tint"></i> Water Usage Efficiency Reports</a>
+                        <a class="dropdown-item" href="#fertilizerRecommendations"><i class="fas fa-seedling"></i> Fertilizer Recommendations</a>
+                    </div>
+                    
+               
+                    <li class="nav-item"></li>
+                    <a class="nav-link" href="Education.html"><i class="fas fa-book"></i> Education and Support</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Community.html"><i class="fas fa-users"></i> Community</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Crop Health Reports Section -->
+        <!-- Crop Health Reports Section -->
+<section id="cropHealthReports" class="section-content">
+    <h2 class="section-header"><i class="fas fa-seedling"></i> Crop Health Reports</h2>
+    <div class="card">
+        <div class="card-header"><i class="fas fa-chart-line"></i> Comprehensive Crop Health Monitoring</div>
+        <div class="card-body">
+            <p>Our Crop Health Reports provide detailed insights into the health of your crops based on satellite imagery, drone footage, and sensor data. The system analyzes NDVI (Normalized Difference Vegetation Index) to offer real-time health predictions.</p>
+            <canvas id="cropHealthChart" style="height: 400px;"></canvas>
+            <button class="btn btn-custom mt-3"><i class="fas fa-download"></i> Download Crop Health Report</button>
+        </div>
+    </div>
+</section>
+
+<!-- Market Price Recommendations Section -->
+<section id="marketRecommendations" class="section-content">
+    <h2 class="section-header"><i class="fas fa-coins"></i> Market Price Recommendations</h2>
+    <div class="card">
+        <div class="card-header"><i class="fas fa-balance-scale"></i> Optimize Crop Sales with Market Insights</div>
+        <div class="card-body">
+            <p>Get real-time recommendations on when and where to sell your crops based on market demand, historical prices, and predictive analytics. Our tool offers insights into optimal selling points across various markets.</p>
+            <div id="marketPriceContainer" class="mb-3">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Market</th>
+                            <th>Crop</th>
+                            <th>Current Price</th>
+                            <th>Predicted Price</th>
+                            <th>Recommendation</th>
+                        </tr>
+                    </thead>
+                    <tbody id="marketData">
+                        <!-- Dynamic content will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+            <button class="btn btn-custom mt-3" onclick="getMarketRecommendations()"><i class="fas fa-sync-alt"></i> Update Market Recommendations</button>
+        </div>
+    </div>
+</section>
+
+<!-- Water Usage Efficiency Reports Section -->
+<section id="waterUsageReports" class="section-content">
+    <h2 class="section-header"><i class="fas fa-tint"></i> Water Usage Efficiency Reports</h2>
+    <div class="card">
+        <div class="card-header"><i class="fas fa-water"></i> Improve Water Conservation Efforts</div>
+        <div class="card-body">
+            <p>Maximize your irrigation efficiency with our water usage reports. The tool analyzes soil moisture levels, weather patterns, and irrigation data to suggest the optimal water usage per hectare of crop land.</p>
+            <div class="progress mb-3">
+                <div class="progress-bar progress-bar-custom" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75% Efficient</div>
+            </div>
+            <button class="btn btn-custom mt-3"><i class="fas fa-file-alt"></i> View Full Water Efficiency Report</button>
+        </div>
+    </div>
+</section>
+
+<!-- Fertilizer Recommendations Section -->
+<section id="fertilizerRecommendations" class="section-content">
+    <h2 class="section-header"><i class="fas fa-flask"></i> Fertilizer Recommendations</h2>
+    <div class="card">
+        <div class="card-header"><i class="fas fa-leaf"></i> Customized Fertilizer Plans</div>
+        <div class="card-body">
+            <p>Receive data-driven fertilizer recommendations tailored to your soil type, crop requirements, and environmental conditions. Optimize nutrient application for better yield and soil health.</p>
+            <canvas id="fertilizerChart" style="height: 400px;"></canvas>
+            <button class="btn btn-custom mt-3"><i class="fas fa-download"></i> Download Fertilizer Plan</button>
+        </div>
+    </div>
+</section>
+ 
+    <!-- Bottom Navigation Bar -->
+    <div class="bottom-navbar">
+        <a class="bottom-nav-item" href="Dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+        <a class="bottom-nav-item" href="Visualization.html"><i class="fas fa-chart-pie"></i> Data <br>Visualization</a>
+        <a class="bottom-nav-item" href="prediction.html"><i class="fas fa-bullhorn"></i> Predictions <br> Alerts</a>
+        <a class="bottom-nav-item" href="Reports.html"><i class="fas fa-file-alt"></i> Reports <br> Recommendations</a>
+        <a class="bottom-nav-item" href="Education.html"><i class="fas fa-book"></i> Education <br> Support</a>
+        <a class="bottom-nav-item" href="Community.html"><i class="fas fa-users"></i> Community</a>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="script.js"></script> 
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Chart.js Initialization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Crop Health Chart (NDVI Analysis)
+        var ctx1 = document.getElementById('cropHealthChart').getContext('2d');
+        var cropHealthChart = new Chart(ctx1, {
+            type: 'line',
+            data: {
+                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5'],
+                datasets: [{
+                    label: 'NDVI Index',
+                    data: [0.65, 0.67, 0.69, 0.71, 0.73],
+                    borderColor: '#4b0082',
+                    backgroundColor: 'rgba(75, 0, 130, 0.2)',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        beginAtZero: true
+                    },
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Market Price Recommendations - Simulated dynamic data
+        function getMarketRecommendations() {
+            var marketData = [
+                { market: 'New York', crop: 'Wheat', currentPrice: '$250', predictedPrice: '$280', recommendation: 'Hold' },
+                { market: 'Chicago', crop: 'Corn', currentPrice: '$300', predictedPrice: '$320', recommendation: 'Sell' },
+                { market: 'Los Angeles', crop: 'Soybeans', currentPrice: '$150', predictedPrice: '$170', recommendation: 'Hold' }
+            ];
+            var tableBody = document.getElementById('marketData');
+            tableBody.innerHTML = '';
+            marketData.forEach(function(row) {
+                var tr = `<tr>
+                    <td>${row.market}</td>
+                    <td>${row.crop}</td>
+                    <td>${row.currentPrice}</td>
+                    <td>${row.predictedPrice}</td>
+                    <td>${row.recommendation}</td>
+                </tr>`;
+                tableBody.innerHTML += tr;
+            });
+        }
+
+        // Fertilizer Recommendations Chart
+        var ctx2 = document.getElementById('fertilizerChart').getContext('2d');
+        var fertilizerChart = new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: ['Nitrogen', 'Phosphorus', 'Potassium', 'Calcium'],
+                datasets: [{
+                    label: 'Required Amount (kg/hectare)',
+                    data: [120, 60, 80, 50],
+                    backgroundColor: ['#4b0082', '#8a2be2', '#9370db', '#d8bfd8'],
+                    borderColor: '#4b0082',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        beginAtZero: true
+                    },
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,269 @@
+        /* General Body Styles */
+        body {
+            font-family: 'Roboto', sans-serif; /* Updated Font */
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Navbar Styles */
+        .navbar-custom {
+            background: linear-gradient(90deg, #004d40 0%, #00796b 100%); /* Gradient Background */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Subtle Shadow */
+        }
+        
+        .navbar-custom .navbar-brand {
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 1.75rem; /* Increased Font Size */
+        }
+        
+        .navbar-custom .navbar-nav .nav-link {
+            color: #ffffff;
+            font-size: 1.1rem; /* Slightly Larger Font Size */
+        }
+        
+        .navbar-custom .navbar-nav .nav-link:hover {
+            color: #b2dfdb; /* Light Color for Hover */
+        }
+        
+        /* Container and Sections */
+        .container {
+            margin-top: 20px; /* Reduced Margin */
+            padding: 0 20px; /* Increased Padding */
+        }
+        
+        .section-header {
+            margin-bottom: 20px;
+            color: #004d40;
+            font-size: 2.25rem; /* Increased Font Size */
+            font-weight: 700;
+            border-bottom: 2px solid #004d40; /* Added Bottom Border */
+            padding-bottom: 10px; /* Added Padding */
+        }
+        
+        /* Section Content */
+        .section-content {
+            background-color: #ffffff;
+            padding: 30px; /* Increased Padding */
+            border-radius: 12px; /* Rounded Corners */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            transition: box-shadow 0.3s ease; /* Smooth Transition */
+        }
+        
+        .section-content:hover {
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* Enhanced Hover Effect */
+        }
+        
+        /* Card Styles */
+        .card {
+            margin-bottom: 20px;
+            border: 1px solid #e1e5ea;
+            border-radius: 12px; /* Rounded Corners */
+            overflow: hidden;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        
+        .card:hover {
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px); /* Lift Effect */
+        }
+        
+        .card-header {
+            background: linear-gradient(90deg, #004d40 0%, #00796b 100%); /* Gradient Background */
+            color: #ffffff;
+            font-weight: bold;
+            padding: 20px; /* Increased Padding */
+            border-bottom: 1px solid #004d40; /* Bottom Border */
+        }
+        
+        .card-body {
+            background-color: #fafafa; /* Lighter Background */
+            padding: 20px; /* Increased Padding */
+        }
+        
+        /* Button Styles */
+        .btn-custom {
+            background: linear-gradient(90deg, #004d40 0%, #00796b 100%); /* Gradient Background */
+            color: #ffffff;
+            border-radius: 25px; /* Rounded Corners */
+            border: none;
+            padding: 12px 24px; /* Increased Padding */
+            font-size: 1.1rem; /* Slightly Larger Font Size */
+            transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        
+        .btn-custom:hover {
+            background: linear-gradient(90deg, #00332e 0%, #004d40 100%); /* Darker Gradient on Hover */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transform: scale(1.05); /* Slightly Larger on Hover */
+        }
+        
+        .btn-custom:focus, .btn-custom:active {
+            box-shadow: none;
+        }
+        
+        /* Video Section */
+        .video-section {
+            text-align: center;
+            margin: 30px 0; /* Increased Margin */
+        }
+        
+        .video-section video {
+            max-width: 100%;
+            border-radius: 12px; /* Rounded Corners */
+        }
+        
+        /* FAQ Styles */
+        .faq-item {
+            margin-bottom: 15px; /* Increased Margin */
+        }
+        
+        .faq-question {
+            font-weight: bold;
+            cursor: pointer;
+            color: #004d40;
+            font-size: 1.1rem; /* Slightly Larger Font Size */
+            transition: color 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            color: #00796b; /* Slight Color Change on Hover */
+        }
+        
+        .faq-answer {
+            display: none;
+            padding-left: 15px;
+            border-left: 2px solid #004d40;
+            margin-top: 5px;
+            font-size: 1rem; /* Standard Font Size */
+        }
+        
+        /* Download Link */
+        .download-link {
+            color: #004d40;
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+        
+        .download-link:hover {
+            color: #00796b; /* Change Color on Hover */
+            text-decoration: none;
+        }
+        
+        /* Media Queries */
+        
+        /* Tablets and Larger Phones */
+        @media (max-width: 1024px) {
+            .navbar-nav {
+                text-align: center;
+                margin-top: 10px;
+            }
+        
+            .section-header {
+                font-size: 2rem; /* Adjusted Font Size */
+            }
+        
+            .container {
+                padding: 0 15px; /* Adjusted Padding */
+            }
+        }
+        
+        /* Mobile Devices */
+        @media (max-width: 767.98px) {
+            .navbar-custom .navbar-brand {
+                font-size: 1.5rem; /* Adjusted Font Size */
+            }
+        
+            .navbar-nav .nav-link {
+                font-size: 1rem; /* Adjusted Font Size */
+            }
+        
+            .section-header {
+                font-size: 1.5rem; /* Adjusted Font Size */
+            }
+        
+            .container {
+                padding: 0 10px; /* Adjusted Padding */
+            }
+        
+            .section-content {
+                padding: 20px; /* Adjusted Padding */
+            }
+        
+            .video-section {
+                margin: 20px 0; /* Adjusted Margin */
+            }
+        
+            .faq-question {
+                font-size: 1rem; /* Adjusted Font Size */
+            }
+        }
+        /* Bottom Navigation Bar Styles */
+        .bottom-navbar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between; /* Space between items */
+            background-color: #004d40;
+            padding: 8px 0; /* Reduced padding for better fit */
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 1000; /* Ensure it stays above other content */
+            overflow-x: auto; /* Allows horizontal scrolling if needed */
+            white-space: nowrap; /* Prevent wrapping of items */
+        }
+        
+        .bottom-nav-item {
+            color: #ffffff;
+            text-align: center;
+            text-decoration: none;
+            font-size: 0.6rem; /* Smaller font size for better fit */
+            padding: 4px 6px; /* Adjust padding for space efficiency */
+            min-width: 50px; /* Minimum width to ensure items are visible */
+            flex: 1; /* Allow items to take up equal space */
+        }
+        
+        .bottom-nav-item i {
+            display: block;
+            font-size: 1rem; /* Adjust icon size for visibility */
+        }
+        
+        .bottom-nav-item span {
+            display: block; /* Make text appear in a separate line */
+            font-size: 0.6rem; /* Adjust text size for visibility */
+            margin-top: 2px; /* Space between icon and text */
+        }
+        
+        .bottom-nav-item:hover {
+            color: #cce7e5;
+        }
+        
+        .bottom-nav-item.active {
+            background-color: #003d33; /* A slightly darker color for the active item */
+            border-radius: 10px;
+        }
+        
+        @media (max-width: 767.98px) {
+            .bottom-navbar {
+                display: flex;
+                flex-wrap: nowrap; /* Prevent wrapping */
+            }
+        
+            .bottom-nav-item {
+                font-size: 0.55rem; /* Further reduce font size if needed */
+                padding: 2px 4px; /* Adjust padding */
+            }
+        
+            .bottom-nav-item i {
+                font-size: 0.9rem; /* Adjust icon size for better fit */
+            }
+        
+            .bottom-nav-item span {
+                font-size: 0.55rem; /* Adjust text size */
+            }
+        }
+        

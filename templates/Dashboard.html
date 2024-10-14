@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Chart.js CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.css" rel="stylesheet">
+    <!-- Leaflet CSS -->
+    <link href="https://unpkg.com/leaflet/dist/leaflet.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+<link rel="stylesheet" href="/static/dashboard.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <a class="navbar-brand" href="#"><i class="fas fa-leaf"></i> AgriData Tool</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dashboardDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-tachometer-alt"></i> Dashboard
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dashboardDropdown">
+                        <a class="dropdown-item" href="#currentMetrics"><i class="fas fa-tachometer-alt"></i> Current Metrics</a>
+                        <a class="dropdown-item" href="#soilMoisture"><i class="fas fa-water"></i> Soil Moisture Levels</a>
+                        <a class="dropdown-item" href="#waterAvailability"><i class="fas fa-tint"></i> Water Availability</a>
+                        <a class="dropdown-item" href="#weatherForecasts"><i class="fas fa-cloud-sun"></i> Weather Forecasts</a>
+                        <a class="dropdown-item" href="#historicalTrends"><i class="fas fa-history"></i> Historical Trends</a>
+                        <a class="dropdown-item" href="#cropHealth"><i class="fas fa-seedling"></i> Crop Health Monitoring</a>
+                        <a class="dropdown-item" href="#irrigationManagement"><i class="fas fa-water"></i> Irrigation Management</a>
+                        <a class="dropdown-item" href="#pestControl"><i class="fas fa-bug"></i> Pest Control Alerts</a>
+                        <a class="dropdown-item" href="#livestockWater"><i class="fas fa-cow"></i> Livestock Water Needs</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Visualization.html"><i class="fas fa-chart-pie"></i> Data Visualization</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="prediction.html"><i class="fas fa-bullhorn"></i> Predictions and Alerts</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Reports.html"><i class="fas fa-file-alt"></i> Reports and Recommendations</a>
+                </li>
+                <li class="nav-item"></li>
+                <a class="nav-link" href="Education.html"><i class="fas fa-book"></i> Education and Support</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Community.html"><i class="fas fa-users"></i> Community</a>
+            </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <section id="currentMetrics" class="section-content animate__animated animate__fadeIn">
+        <h2 class="section-header"><i class="fas fa-tachometer-alt"></i> Current Metrics</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card animate__animated animate__fadeIn">
+                    <div class="card-header"><i class="fas fa-water"></i> Current Soil Moisture</div>
+                    <div class="card-body">
+                        <p>Displays real-time soil moisture levels across various farm locations. Helps in assessing the need for irrigation and understanding soil health.</p>
+                        <canvas id="soilMoistureChart" class="fade-in"></canvas>
+                        <button class="btn btn-custom" onclick="fetchSoilMoistureData()"><i class="fas fa-eye"></i> View Details</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card animate__animated animate__fadeIn">
+                    <div class="card-header"><i class="fas fa-tint"></i> Water Usage</div>
+                    <div class="card-body">
+                        <p>Overview of current water usage compared to historical data. Provides insights into efficiency and potential savings.</p>
+                        <canvas id="waterUsageChart" class="fade-in"></canvas>
+                        <button class="btn btn-custom" onclick="fetchWaterUsageData()"><i class="fas fa-eye"></i> View Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+        <!-- Soil Moisture Levels Section -->
+        <section id="soilMoisture" class="section-content animate__animated animate__fadeIn">
+            <h2 class="section-header">Soil Moisture Levels</h2>
+            <div class="card animate__animated animate__fadeIn">
+                <div class="card-header">Soil Moisture Data</div>
+                <div class="card-body">
+                    <p>Detailed information about soil moisture levels across different regions. Includes data visualizations and recommendations for irrigation.</p>
+                    <div id="soilMoistureMap" style="height: 400px;"></div>
+                    <button class="btn btn-custom" onclick="fetchSoilMoistureMap()">Explore Data</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Water Availability Section -->
+        <section id="waterAvailability" class="section-content">
+            <h2 class="section-header">Water Availability</h2>
+            <div class="card">
+                <div class="card-header">Current Water Resources</div>
+                <div class="card-body">
+                    <p>Information on the availability of water resources in your area. Includes data on water bodies, rainfall, and potential shortages.</p>
+                    <div id="waterResourcesMap" style="height: 400px;"></div>
+                    <button class="btn btn-custom" onclick="fetchWaterResourcesMap()">View Water Resources</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Weather Forecasts Section -->
+        <section id="weatherForecasts" class="section-content">
+            <h2 class="section-header">Weather Forecasts</h2>
+            <div class="card">
+                <div class="card-header">Upcoming Weather Conditions</div>
+                <div class="card-body">
+                    <p>Displays weather forecasts, including temperature, precipitation, and potential weather hazards that could impact farming operations.</p>
+                    <canvas id="weatherForecastChart"></canvas>
+                    <button class="btn btn-custom" onclick="fetchWeatherForecastData()">Check Forecasts</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Historical Trends Section -->
+        <section id="historicalTrends" class="section-content">
+            <h2 class="section-header">Historical Trends</h2>
+            <div class="card">
+                <div class="card-header">Long-Term Data Analysis</div>
+                <div class="card-body">
+                    <p>Analyze historical data trends to understand patterns in soil moisture, water availability, and weather. Helps in making long-term planning decisions.</p>
+                    <canvas id="historicalTrendsChart"></canvas>
+                    <button class="btn btn-custom" onclick="fetchHistoricalTrendsData()">View Trends</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Crop Health Monitoring Section -->
+        <section id="cropHealth" class="section-content">
+            <h2 class="section-header">Crop Health Monitoring</h2>
+            <div class="card">
+                <div class="card-header">Current Crop Conditions</div>
+                <div class="card-body">
+                    <p>Track the health of different crops through various metrics. Includes visual indicators and recommendations for crop management.</p>
+                    <div id="cropHealthChart"></div>
+                    <button class="btn btn-custom" onclick="fetchCropHealthData()">Monitor Health</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Irrigation Management Section -->
+        <section id="irrigationManagement" class="section-content">
+            <h2 class="section-header">Irrigation Management</h2>
+            <div class="card">
+                <div class="card-header">Optimize Water Usage</div>
+                <div class="card-body">
+                    <p>Tools and recommendations for managing irrigation effectively. Includes data on water usage and suggestions for improving irrigation practices.</p>
+                    <canvas id="irrigationManagementChart"></canvas>
+                    <button class="btn btn-custom" onclick="fetchIrrigationManagementData()">Manage Irrigation</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pest Control Alerts Section -->
+        <section id="pestControl" class="section-content">
+            <h2 class="section-header">Pest Control Alerts</h2>
+            <div class="card">
+                <div class="card-header">Current Pest Threats</div>
+                <div class="card-body">
+                    <p>Alerts and information on pest threats that may impact crop health. Includes prevention tips and recommended actions.</p>
+                    <div id="pestControlAlerts"></div>
+                    <button class="btn btn-custom" onclick="fetchPestControlAlerts()">View Alerts</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Livestock Water Needs Section -->
+        <section id="livestockWater" class="section-content">
+            <h2 class="section-header">Livestock Water Needs</h2>
+            <div class="card">
+                <div class="card-header">Water Requirements for Livestock</div>
+                <div class="card-body">
+                    <p>Information on the water needs of different livestock types and recommendations for ensuring adequate water supply.</p>
+                    <canvas id="livestockWaterChart"></canvas>
+                    <button class="btn btn-custom" onclick="fetchLivestockWaterData()">Check Water Needs</button>
+                </div>
+            </div>
+        </section>
+
+<!-- Bottom Navigation Bar -->
+<div class="bottom-navbar">
+    <a class="bottom-nav-item" href="Dashboard.html">
+        <i class="fas fa-tachometer-alt"></i><span>Dashboard</span>
+    </a>
+    <a class="bottom-nav-item" href="Visualization.html">
+        <i class="fas fa-chart-pie"></i><span>Data <br>Visualization</span>
+    </a>
+    <a class="bottom-nav-item" href="prediction.html">
+        <i class="fas fa-bullhorn"></i><span>Predictions <br> Alerts</span>
+    </a>
+    <a class="bottom-nav-item" href="Reports.html">
+        <i class="fas fa-file-alt"></i><span>Reports <br> Recommendations</span>
+    </a>
+    <a class="bottom-nav-item" href="Education.html">
+        <i class="fas fa-book"></i><span>Education <br> Support</span>
+    </a>
+    <a class="bottom-nav-item" href="Community.html">
+        <i class="fas fa-users"></i><span>Community</span>
+    </a>
+</div>
+
+       
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+    <!-- Leaflet.js -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <script src="script.js"></script> 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize charts and maps here
+            initCharts();
+            initMaps();
+        });
+
+        function initCharts() {
+            // Example: Soil Moisture Chart
+            const ctxSoilMoisture = document.getElementById('soilMoistureChart').getContext('2d');
+            new Chart(ctxSoilMoisture, {
+                type: 'line',
+                data: {
+                    labels: ['January', 'February', 'March', 'April', 'May'],
+                    datasets: [{
+                        label: 'Soil Moisture (%)',
+                        data: [30, 45, 50, 65, 70],
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            // Similarly, initialize other charts here
+        }
+
+        function initMaps() {
+            // Example: Soil Moisture Map
+            const mapSoilMoisture = L.map('soilMoistureMap').setView([51.505, -0.09], 13);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(mapSoilMoisture);
+            
+            // Add markers or other map features here
+        }
+
+        function fetchSoilMoistureData() {
+            // Fetch soil moisture data dynamically
+        }
+
+        function fetchWaterUsageData() {
+            // Fetch water usage data dynamically
+        }
+
+        function fetchSoilMoistureMap() {
+            // Fetch and display soil moisture map data dynamically
+        }
+
+        function fetchWaterResourcesMap() {
+            // Fetch and display water resources map data dynamically
+        }
+
+        function fetchWeatherForecastData() {
+            // Fetch and display weather forecast data dynamically
+        }
+
+        function fetchHistoricalTrendsData() {
+            // Fetch and display historical trends data dynamically
+        }
+
+        function fetchCropHealthData() {
+            // Fetch and display crop health data dynamically
+        }
+
+        function fetchIrrigationManagementData() {
+            // Fetch and display irrigation management data dynamically
+        }
+
+        function fetchPestControlAlerts() {
+            // Fetch and display pest control alerts dynamically
+        }
+
+        function fetchLivestockWaterData() {
+            // Fetch and display livestock water needs data dynamically
+        }
+
+    </script>
+</body>
+</html>

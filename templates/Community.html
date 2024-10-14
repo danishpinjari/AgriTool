@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community</title>
+    <!-- Bootstrap CSS for styling -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/Community.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <a class="navbar-brand" href="#"><i class="fas fa-leaf"></i> AgriData Tool</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="Dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Visualization.html"><i class="fas fa-chart-pie"></i> Data Visualization</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="prediction.html"><i class="fas fa-bullhorn"></i> Predictions and Alerts</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Reports.html"><i class="fas fa-file-alt"></i> Reports and Recommendations</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Education.html"><i class="fas fa-book"></i> Education and Support</a>
+                </li>
+                <!-- Community Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="communityDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-users"></i> Community</a>
+                    <div class="dropdown-menu" aria-labelledby="communityDropdown">
+                        <a class="dropdown-item" href="#forumSection"><i class="fas fa-comments"></i> Forums</a>
+                        <a class="dropdown-item" href="#eventsSection"><i class="fas fa-calendar-alt"></i> Community Events</a>
+                        <a class="dropdown-item" href="#contributeSection"><i class="fas fa-hands-helping"></i> How to Contribute</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Forums Section -->
+        <section id="forumSection" class="section-content">
+            <h2 class="section-header"><i class="fas fa-comments"></i> Forums</h2>
+            <div class="card">
+                <div class="card-header">Community Forums</div>
+                <div class="card-body">
+                    <p>Engage with other users and experts in our community forums. Share your knowledge, ask questions, and get involved in discussions about the AgriData tool and related topics.</p>
+                    <div class="forum-post">
+                        <div class="forum-title"><i class="fas fa-lightbulb"></i> Getting Started with Data Visualization</div>
+                        <div class="forum-content">This thread discusses the basics of data visualization techniques and how to apply them using the AgriData tool. Join the conversation and share your insights!</div>
+                    </div>
+                    <div class="forum-post">
+                        <div class="forum-title"><i class="fas fa-chart-line"></i> Advanced Reporting Techniques</div>
+                        <div class="forum-content">Explore advanced techniques for generating reports with the AgriData tool. Share your tips and tricks, or ask for advice from the community.</div>
+                    </div>
+                    <button class="btn btn-custom mt-3"><i class="fas fa-sign-in-alt"></i> Join the Forums</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Events Section -->
+        <section id="eventsSection" class="section-content">
+            <h2 class="section-header"><i class="fas fa-calendar-alt"></i> Community Events</h2>
+            <div class="card">
+                <div class="card-header">Upcoming Events</div>
+                <div class="card-body">
+                    <p>Stay updated with the latest community events, workshops, and webinars. Participate in events to enhance your skills and network with other users.</p>
+                    <ul class="event-list">
+                        <li class="event-item">
+                            <div class="event-title"><i class="fas fa-chalkboard-teacher"></i> Webinar: Introduction to Data Analytics</div>
+                            <div class="event-details">Date: September 25, 2024 | Time: 3:00 PM - 4:00 PM | Description: Join our expert-led webinar to get an introduction to data analytics techniques and how to leverage them using the AgriData tool.</div>
+                        </li>
+                        <li class="event-item">
+                            <div class="event-title"><i class="fas fa-laptop-code"></i> Workshop: Creating Interactive Dashboards</div>
+                            <div class="event-details">Date: October 5, 2024 | Time: 10:00 AM - 1:00 PM | Description: Participate in this hands-on workshop to learn how to create interactive dashboards with the AgriData tool. Ideal for users who want to enhance their dashboard creation skills.</div>
+                        </li>
+                        <li class="event-item">
+                            <div class="event-title"><i class="fas fa-users"></i> Annual Community Meetup</div>
+                            <div class="event-details">Date: November 15, 2024 | Time: 9:00 AM - 5:00 PM | Location: New York, NY | Description: Join us for our annual meetup, where you'll have the opportunity to network with fellow users, attend talks by experts, and participate in interactive sessions.</div>
+                        </li>
+                    </ul>
+                    <button class="btn btn-custom mt-3"><i class="fas fa-calendar-plus"></i> View All Events</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- How to Contribute Section -->
+        <section id="contributeSection" class="section-content">
+            <h2 class="section-header"><i class="fas fa-hands-helping"></i> How to Contribute</h2>
+            <div class="card">
+                <div class="card-header">Ways to Contribute</div>
+                <div class="card-body">
+                    <p>Contribute to the AgriData community by sharing your knowledge, providing feedback, or participating in projects. Here are some ways you can contribute:</p>
+                    <ul>
+                        <li><i class="fas fa-pen"></i> Write articles or tutorials to help others learn how to use the AgriData tool.</li>
+                        <li><i class="fas fa-comments"></i> Share feedback and suggest improvements for future updates.</li>
+                        <li><i class="fas fa-project-diagram"></i> Participate in community-driven projects and collaborate with other users.</li>
+                    </ul>
+                    <button class="btn btn-custom mt-3"><i class="fas fa-user-plus"></i> Get Involved</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+        <!-- Bottom Navigation Bar -->
+        <div class="bottom-navbar">
+            <a class="bottom-nav-item" href="Dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a class="bottom-nav-item" href="Visualization.html"><i class="fas fa-chart-pie"></i> Data <br>Visualization</a>
+            <a class="bottom-nav-item" href="prediction.html"><i class="fas fa-bullhorn"></i> Predictions <br> Alerts</a>
+            <a class="bottom-nav-item" href="Reports.html"><i class="fas fa-file-alt"></i> Reports <br> Recommendations</a>
+            <a class="bottom-nav-item" href="Education.html"><i class="fas fa-book"></i> Education <br> Support</a>
+            <a class="bottom-nav-item" href="Community.html"><i class="fas fa-users"></i> Community</a>
+        </div>
+
+    <!-- Bootstrap JS and jQuery -->
+    <script src="script.js"></script> 
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

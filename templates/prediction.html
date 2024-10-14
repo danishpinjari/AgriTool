@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predictions and Alerts</title>
+    <!-- Bootstrap CSS for styling -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/Prediction.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <a class="navbar-brand" href="#"><i class="fas fa-leaf"></i> AgriData Tool</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"></li>
+                    <a class="nav-link" href="Dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Visualization.html"><i class="fas fa-chart-pie"></i> Data Visualization</a>
+                </li>
+
+                <!-- Predictions and Alerts Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="predictionsAlertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-bullhorn"></i> Predictions and Alerts
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="predictionsAlertsDropdown">
+                        <a class="dropdown-item" href="#cropYieldPrediction"><i class="fas fa-leaf"></i> Crop Yield Prediction</a>
+                        <a class="dropdown-item" href="#weatherForecasting"><i class="fas fa-cloud-sun"></i> Weather Forecasting</a>
+                        <a class="dropdown-item" href="#diseaseAlerts"><i class="fas fa-bug"></i> Disease and Pest Alerts</a>
+                        <a class="dropdown-item" href="#irrigationRecommendations"><i class="fas fa-water"></i> Irrigation Recommendations</a>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="Reports.html"><i class="fas fa-file-alt"></i> Reports and Recommendations</a>
+                </li>
+                <li class="nav-item"></li>
+                <a class="nav-link" href="Education.html"><i class="fas fa-book"></i> Education and Support</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Community.html"><i class="fas fa-users"></i> Community</a>
+            </li>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Crop Yield Prediction Section -->
+        <section id="cropYieldPrediction" class="section-content">
+            <h2 class="section-header"><i class="fas fa-leaf"></i> Crop Yield Prediction</h2>
+            <div class="card">
+                <div class="card-header">Smart Crop Yield Prediction Using AI</div>
+                <div class="card-body">
+                    <p>This tool uses AI to predict the yield for the upcoming season based on factors like soil moisture, temperature, and historical crop data. Predictions help farmers plan ahead for optimal planting and harvesting times.</p>
+                    <canvas id="cropYieldPredictionChart" style="height: 400px;"></canvas>
+                    <button class="btn btn-custom mt-3"><i class="fas fa-download"></i> Download Prediction Report</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Weather Forecasting Section -->
+        <section id="weatherForecasting" class="section-content">
+            <h2 class="section-header"><i class="fas fa-cloud-sun"></i> Weather Forecasting</h2>
+            <div class="card">
+                <div class="card-header">5-Day Dynamic Weather Forecast</div>
+                <div class="card-body">
+                    <p>Stay prepared with up-to-date weather forecasts. Weather predictions are sourced from NASA data and analyzed to help farmers prepare for rain, storms, or drought conditions that could impact crop cycles.</p>
+                    <div id="weatherDataContainer">
+                        <ul id="weatherData" class="list-group"></ul>
+                    </div>
+                    <button class="btn btn-custom mt-3" onclick="getWeatherData()"><i class="fas fa-sync-alt"></i> Refresh Forecast</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Disease and Pest Alerts Section -->
+        <section id="diseaseAlerts" class="section-content">
+            <h2 class="section-header"><i class="fas fa-bug"></i> Disease and Pest Alerts</h2>
+            <div class="card">
+                <div class="card-header">Real-time Pest and Disease Detection</div>
+                <div class="card-body">
+                    <p>Receive alerts about potential pest infestations or crop diseases. This tool uses data from sensors and satellite images to predict outbreaks and helps farmers take preventative action.</p>
+                    <canvas id="pestAlertChart" style="height: 400px;"></canvas>
+                    <button class="btn btn-custom mt-3"><i class="fas fa-exclamation-circle"></i> Take Action</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Irrigation Recommendations Section -->
+        <section id="irrigationRecommendations" class="section-content">
+            <h2 class="section-header"><i class="fas fa-water"></i> Irrigation Recommendations</h2>
+            <div class="card">
+                <div class="card-header">Optimize Water Usage</div>
+                <div class="card-body">
+                    <p>Customized irrigation recommendations based on soil moisture data and crop requirements. By optimizing water use, farmers can conserve resources while ensuring crops are well-nourished.</p>
+                    <canvas id="irrigationChart" style="height: 400px;"></canvas>
+                    <button class="btn btn-custom mt-3"><i class="fas fa-chart-line"></i> View Detailed Plan</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+        <!-- Bottom Navigation Bar -->
+        <div class="bottom-navbar">
+            <a class="bottom-nav-item" href="Dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a class="bottom-nav-item" href="Visualization.html"><i class="fas fa-chart-pie"></i> Data <br>Visualization</a>
+            <a class="bottom-nav-item" href="prediction.html"><i class="fas fa-bullhorn"></i> Predictions <br> Alerts</a>
+            <a class="bottom-nav-item" href="Reports.html"><i class="fas fa-file-alt"></i> Reports <br> Recommendations</a>
+            <a class="bottom-nav-item" href="Education.html"><i class="fas fa-book"></i> Education <br> Support</a>
+            <a class="bottom-nav-item" href="Community.html"><i class="fas fa-users"></i> Community</a>
+        </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="script.js"></script> 
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Chart.js Initialization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Crop Yield Prediction Chart
+        var ctx1 = document.getElementById('cropYieldPredictionChart').getContext('2d');
+        var cropYieldPredictionChart = new Chart(ctx1, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Predicted Yield (Tons)',
+                    data: [100, 120, 140, 160, 180, 200],
+                    backgroundColor: 'rgba(0, 77, 64, 0.2)',
+                    borderColor: '#004d40',
+                    borderWidth: 2
+                }]
+            }
+        });
+
+        // Weather Forecast (Example function)
+        function getWeatherData() {
+            // Example function to refresh weather data
+            alert("Weather data refreshed!");
+        }
+
+        // Disease and Pest Alerts Chart
+        var ctx2 = document.getElementById('pestAlertChart').getContext('2d');
+        var pestAlertChart = new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: ['Pest 1', 'Pest 2', 'Disease 1', 'Disease 2'],
+                datasets: [{
+                    label: 'Number of Alerts',
+                    data: [12, 19, 3, 5],
+                    backgroundColor: ['#e74c3c', '#c0392b', '#27ae60', '#16a085']
+                }]
+            }
+        });
+
+        // Irrigation Chart
+        var ctx3 = document.getElementById('irrigationChart').getContext('2d');
+        var irrigationChart = new Chart(ctx3, {
+            type: 'pie',
+            data: {
+                labels: ['Field 1', 'Field 2', 'Field 3', 'Field 4'],
+                datasets: [{
+                    label: 'Water Usage (L)',
+                    data: [500, 700, 400, 800],
+                    backgroundColor: ['#3498db', '#2980b9', '#8e44ad', '#9b59b6']
+                }]
+            }
+        });
+    </script>
+</body>
+</html>
